@@ -5,6 +5,7 @@ const fromcurr = document.querySelector(".from select");
 const tocurr = document.querySelector(".to select");
 const msg= document.querySelector(".msg");
 
+
 for(let select of dropdowns){
     for(currcode in countrylist){
         let newoption = document.createElement("option");
@@ -22,16 +23,7 @@ for(let select of dropdowns){
     });
 }
 
-const updateflag=(element) => {
-    let currcode =element.value;
-    let countrycode= countrylist[currcode];
-    let newsrc=`https://flagsapi.com/${countrycode}/flat/64.png`;
-    let img=element.parentElement.querySelector("img");
-    img.src=newsrc;
-}
-
-btn.addEventListener("click", async (evt) =>{
-    evt.preventDefault();
+const updatexchangerate = async () =>{
     let amount = document.querySelector(".amount input");
     let amtval = amount.value;
     if(amtval===""||amtval < 1){
@@ -44,4 +36,21 @@ btn.addEventListener("click", async (evt) =>{
     let rate =data[tocurr.value.toLowerCase()];
     let finalamount = amtval * rate;
     msg.innerText =`${amtval} ${fromcurr.value} = ${finalamount.toFixed(2)} ${tocurr.value}`;
+}
+
+const updateflag=(element) => {
+    let currcode =element.value;
+    let countrycode= countrylist[currcode];
+    let newsrc=`https://flagsapi.com/${countrycode}/flat/64.png`;
+    let img=element.parentElement.querySelector("img");
+    img.src=newsrc;
+}
+
+btn.addEventListener("click", async (evt) =>{
+    evt.preventDefault();
+    updatexchangerate();
+});
+
+window.addEventListener("load", () =>{
+    updatexchangerate();
 });
