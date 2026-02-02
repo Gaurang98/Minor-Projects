@@ -145,7 +145,7 @@ Please follow these guidelines:
 
 ## License & Contact
 This repository is provided as-is for learning and experimentation. 
-This project is licensed under the terms of the [**MIT LICENSE**](LICENSE) license.
+It is licensed under the terms of the [**MIT**](LICENSE) license.
 
 
 Maintainer: Gaurang98  
